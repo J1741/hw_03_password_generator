@@ -1,36 +1,111 @@
+/*********************/
+/* Table of Contents */
+/*********************/
+
+/* 
+1.0 Set up arrays
+2.0 Set up global variables
+3.0 Function: Prompt for length
+4.0 Function: Confirm lowercase
+5.0 Function: Confirm uppercase
+6.0 Function: Confirm numbers
+7.0 Function: Confirm special characters
+8.0 Function and call: Get user inputs
+*/
+
+/*********************/
+/* 1.0 Set up arrays */
+/*********************/
 
 // declare arrays
-// special characters used
-// " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 var lowers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 var specials = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
 
-// check arrays
-console.log(lowers);
-console.log(uppers);
-console.log(numbers);
-console.log(specials);
+/*******************************/
+/* 2.0 Set up global variables */
+/*******************************/
+
+// declare global variables
+var passwordLength;
+var passwordLower;
+var passwordUpper;
+var passwordNumber;
+var passwordSpecial;
+
+/***********************************/
+/* 3.0 Function: Prompt for length */
+/***********************************/
+
+// get password length
+function getPasswordLength() {
+  var userLength = parseInt(window.prompt("How many characters should the password be?"), 10);
+  console.log(userLength);
+  passwordLength = userLength;
+}
+
+/***********************************/
+/* 4.0 Function: Confrim lowercase */
+/***********************************/
+
+// get password lower choice
+function getPasswordLower() {
+  var userLower = window.confirm("Should password contain lowercase letters?");
+  console.log(userLower);
+  passwordLower = userLower;
+}
+
+/***********************************/
+/* 5.0 Function: Confirm uppercase */
+/***********************************/
+
+// get password upper choice
+function getPasswordUpper() {
+  var userUpper = window.confirm("Should password contain uppercase letters?");
+  console.log(userUpper);
+  passwordUpper = userUpper;
+}
+
+/*********************************/
+/* 6.0 Function: Confirm numbers */
+/*********************************/
+
+// get password numbers choice
+function getPasswordNumber() {
+  var userNumber = window.confirm("Should password contain numbers?");
+  console.log(userNumber);
+  passwordNumber = userNumber;
+}
+
+/********************************************/
+/* 7.0 Function: Confirm special characters */
+/********************************************/
+
+// get password special characters choice
+function getPasswordSpecial() {
+  var userSpecial = window.confirm("Should password contain special characters?");
+  console.log(userSpecial);
+  passwordSpecial = userSpecial;
+}
+
+/******************************************/
+/* 8.0 Function and call: Get user inputs */
+/******************************************/
+
+// get user inputs
+function getUserInputs() {
+  getPasswordLength();
+  getPasswordLower();
+  getPasswordUpper();
+  getPasswordNumber();
+  getPasswordSpecial();
+}
+
+// call function to get user inputs
+getUserInputs();
 
 /* ------------------------------- */
-
-// get inputs from user prompt or confirm
-// - length
-//   -- check user input (validity, ACR constraints)
-//   -- stored as number
-// - do you want lower?
-//   -- check user input (validity, ACR constraints)
-//   -- stored as boolean <-- if you use confirm
-// - do you want upper?
-//   -- check user input (validity, ACR constraints)
-//   -- stored as boolean <-- if you use confirm
-// - do you want numbers
-//   -- check user input (validity, ACR constraints)
-//   -- stored as boolean <-- if you use confirm
-// - do you want SCs?
-//   -- check user input (validity, ACR constraints)
-//   -- stored as boolean <-- if you use confirm
 
 // create pwd selection object
 // - property for length: // length: length <-- value
@@ -56,7 +131,7 @@ console.log(specials);
 // ****
 
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+// var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
@@ -68,4 +143,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
