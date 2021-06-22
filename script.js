@@ -1,9 +1,17 @@
 
-// declare arrays/set up arrays
-// - lower
-// - upper
-// - numbers
-// - SCs
+// declare arrays
+// special characters used
+// " !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var lowers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var uppers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specials = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+
+// check arrays
+console.log(lowers);
+console.log(uppers);
+console.log(numbers);
+console.log(specials);
 
 /* ------------------------------- */
 
