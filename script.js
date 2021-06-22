@@ -11,6 +11,7 @@
 6.0 Function: Confirm numbers
 7.0 Function: Confirm special characters
 8.0 Function and call: Get user inputs
+9.0 Create password selection object
 */
 
 /*********************/
@@ -105,14 +106,22 @@ function getUserInputs() {
 // call function to get user inputs
 getUserInputs();
 
-/* ------------------------------- */
+/****************************************/
+/* 9.0 Create password selection object */
+/****************************************/
 
-// create pwd selection object
-// - property for length: // length: length <-- value
-// - property for lower: // lower: boolean
-// - property for upper: // lower: boolean
-// - property for numbers: // lower: boolean
-// - property for SCs: // lower: boolean
+// create password selection object, set values to global variables
+var passwordSelection = {
+  length: passwordLength,
+  lower: passwordLower,
+  upper: passwordUpper,
+  number: passwordNumber,
+  special: passwordSpecial
+};
+
+console.log(passwordSelection);
+
+/* ------------------------------- */
 
 // select random stuff from the arrays that user chose
 // - if lower is a yes
