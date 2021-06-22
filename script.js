@@ -11,8 +11,9 @@
 6.0 Function: Confirm numbers
 7.0 Function: Confirm special characters
 8.0 Function and call: Get user inputs
-9.0 Add appropriate character sets to possibleChars 
-10.0 Make random selection from possibleChars
+9.0 Create set of possibleChars 
+10.0 Function: Make random selection from possibleChars
+11.0 Function: Join selectedChars as createdPassword 
 */
 
 /*********************/
@@ -111,9 +112,9 @@ function getUserInputs() {
 // call function to get user inputs
 getUserInputs();
 
-/*******************************************************/
-/* 9.0 Add appropriate character sets to possibleChars */
-/*******************************************************/
+/***********************************/
+/* 9.0 Create set of possibleChars */
+/***********************************/
 
 // add lowercase letters to possibleChars if applicable
 if (passwordLower === true) {
@@ -137,9 +138,9 @@ if (passwordSpecial === true) {
 
 console.log(possibleChars);
 
-/*************************************************/
-/* 10.0 Make random selection from possibleChars */
-/*************************************************/
+/***********************************************************/
+/* 10.0 Function: Make random selection from possibleChars */
+/***********************************************************/
 
 function selectRandomChars() {
   for (var i = 0; i < passwordLength; i++) {
@@ -154,18 +155,21 @@ function selectRandomChars() {
 selectRandomChars();
 console.log(selectedChars);
 
+/********************************************************/
+/* 11.0 Function: Join selectedChars as createdPassword */
+/********************************************************/
+
+function joinSelectedChars() {
+  createdPassword = selectedChars.join("")
+}
+
+joinSelectedChars();
+console.log(createdPassword);
+
+
 
 /* ------------------------------- */
 
-// select random stuff from the arrays that user chose
-// - if lower is a yes
-//   -- then select some random letters from lower array
-// - if upper is a yes
-//   -- then select some random letters from upper array
-// - if numbers is a yes
-//   -- then select some random numbers from numbers array
-// - if SCs is a yes
-//   -- then select some random special characters from special chars array
 
 // --> write generatePassword function
 // - gen pw of appropriate length
