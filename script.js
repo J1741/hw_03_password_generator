@@ -3,7 +3,7 @@
 /*********************/
 
 /* 
-1.0 Set up arrays
+1.0 Set up arrays 
 2.0 Set up global variables
 3.0 Function: Prompt for length
 4.0 Function: Confirm lowercase
@@ -11,7 +11,8 @@
 6.0 Function: Confirm numbers
 7.0 Function: Confirm special characters
 8.0 Function and call: Get user inputs
-9.0 Create password selection object
+9.0 Add appropriate character sets to possibleChars 
+10.0 Make random selection from possibleChars
 */
 
 /*********************/
@@ -22,7 +23,9 @@
 var lowers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var uppers = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-var specials = [" ", "!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
+var specials = ["!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "|", "}", "~"];
+var possibleChars = [];
+var selectedChars = [];
 
 /*******************************/
 /* 2.0 Set up global variables */
@@ -34,6 +37,7 @@ var passwordLower;
 var passwordUpper;
 var passwordNumber;
 var passwordSpecial;
+var createdPassword;
 
 /***********************************/
 /* 3.0 Function: Prompt for length */
@@ -42,12 +46,13 @@ var passwordSpecial;
 // get password length
 function getPasswordLength() {
   var userLength = parseInt(window.prompt("How many characters should the password be?"), 10);
+  console.log(isNaN(userLength));
   console.log(userLength);
   passwordLength = userLength;
 }
 
 /***********************************/
-/* 4.0 Function: Confrim lowercase */
+/* 4.0 Function: Confirm lowercase */
 /***********************************/
 
 // get password lower choice
@@ -106,20 +111,49 @@ function getUserInputs() {
 // call function to get user inputs
 getUserInputs();
 
-/****************************************/
-/* 9.0 Create password selection object */
-/****************************************/
+/*******************************************************/
+/* 9.0 Add appropriate character sets to possibleChars */
+/*******************************************************/
 
-// create password selection object, set values to global variables
-var passwordSelection = {
-  length: passwordLength,
-  lower: passwordLower,
-  upper: passwordUpper,
-  number: passwordNumber,
-  special: passwordSpecial
-};
+// add lowercase letters to possibleChars if applicable
+if (passwordLower === true) {
+  possibleChars = possibleChars.concat(lowers);
+}
 
-console.log(passwordSelection);
+// add uppercase letters to possibleChars if applicable
+if (passwordUpper === true) {
+  possibleChars = possibleChars.concat(uppers);
+}
+
+// add numbers to possibleChars if applicable
+if (passwordNumber === true) {
+  possibleChars = possibleChars.concat(numbers);
+}
+
+// add special characters to possibleChars if applicable
+if (passwordSpecial === true) {
+  possibleChars = possibleChars.concat(specials);
+}
+
+console.log(possibleChars);
+
+/*************************************************/
+/* 10.0 Make random selection from possibleChars */
+/*************************************************/
+
+function selectRandomChars() {
+  for (var i = 0; i < passwordLength; i++) {
+    var indexRandom = Math.floor(Math.random() * possibleChars.length);
+    console.log(indexRandom);
+    var choiceRandom = possibleChars[indexRandom];
+    console.log(choiceRandom);
+    selectedChars.push(choiceRandom); 
+  }
+}
+
+selectRandomChars();
+console.log(selectedChars);
+
 
 /* ------------------------------- */
 
