@@ -10,10 +10,11 @@
 5.0 Function: Confirm uppercase
 6.0 Function: Confirm numbers
 7.0 Function: Confirm special characters
-8.0 Function and call: Get user inputs
-9.0 Create set of possibleChars 
-10.0 Function: Make random selection from possibleChars
-11.0 Function: Join selectedChars as createdPassword 
+8.0 Function: Get user inputs
+9.0 Function: Make random selection from possibleChars 
+10.0 Function: Join selectedChars as createdPassword
+11.0 Function: Generate password
+12.0 Call: Function to generate password
 */
 
 /*********************/
@@ -96,9 +97,9 @@ function getPasswordSpecial() {
   passwordSpecial = userSpecial;
 }
 
-/******************************************/
-/* 8.0 Function and call: Get user inputs */
-/******************************************/
+/**********************************/
+/* 8.0 Function: Get user inputs */
+/*********************************/
 
 // get user inputs
 function getUserInputs() {
@@ -109,73 +110,78 @@ function getUserInputs() {
   getPasswordSpecial();
 }
 
-// call function to get user inputs
-getUserInputs();
-
-/***********************************/
-/* 9.0 Create set of possibleChars */
-/***********************************/
-
-// add lowercase letters to possibleChars if applicable
-if (passwordLower === true) {
-  possibleChars = possibleChars.concat(lowers);
-}
-
-// add uppercase letters to possibleChars if applicable
-if (passwordUpper === true) {
-  possibleChars = possibleChars.concat(uppers);
-}
-
-// add numbers to possibleChars if applicable
-if (passwordNumber === true) {
-  possibleChars = possibleChars.concat(numbers);
-}
-
-// add special characters to possibleChars if applicable
-if (passwordSpecial === true) {
-  possibleChars = possibleChars.concat(specials);
-}
-
-console.log(possibleChars);
-
 /***********************************************************/
-/* 10.0 Function: Make random selection from possibleChars */
+/* 9.0 Function: Make random selection from possibleChars */
 /***********************************************************/
 
 function selectRandomChars() {
   for (var i = 0; i < passwordLength; i++) {
+
     var indexRandom = Math.floor(Math.random() * possibleChars.length);
     console.log(indexRandom);
+    
     var choiceRandom = possibleChars[indexRandom];
     console.log(choiceRandom);
+    
     selectedChars.push(choiceRandom); 
   }
 }
 
-selectRandomChars();
-console.log(selectedChars);
-
 /********************************************************/
-/* 11.0 Function: Join selectedChars as createdPassword */
+/* 10.0 Function: Join selectedChars as createdPassword */
 /********************************************************/
 
 function joinSelectedChars() {
   createdPassword = selectedChars.join("")
 }
 
-joinSelectedChars();
-console.log(createdPassword);
+/************************************/
+/* 11.0 Function: Generate password */
+/************************************/
 
+// generate password
+function generatePassword() {
+  
+  // get user inputs 
+  getUserInputs();
+
+  if (passwordLower === true) {
+    possibleChars = possibleChars.concat(lowers);
+  }
+  
+  // add uppercase letters to possibleChars if applicable
+  if (passwordUpper === true) {
+    possibleChars = possibleChars.concat(uppers);
+  }
+  
+  // add numbers to possibleChars if applicable
+  if (passwordNumber === true) {
+    possibleChars = possibleChars.concat(numbers);
+  }
+  
+  // add special characters to possibleChars if applicable
+  if (passwordSpecial === true) {
+    possibleChars = possibleChars.concat(specials);
+  }
+  
+  console.log(possibleChars);
+
+  selectRandomChars();
+  console.log(selectedChars);
+
+  joinSelectedChars();
+  console.log(createdPassword);
+
+}
+
+/********************************************/
+/* 12.0 Call: Function to generate password */
+/********************************************/
+
+generatePassword();
 
 
 /* ------------------------------- */
-
-
-// --> write generatePassword function
-// - gen pw of appropriate length
-// - pull from the appropriate arrays 
-// - want to call func that contains prompt and confirms, that is storing everything from user
-// ****
 
 // Assignment Code
 // var generateBtn = document.querySelector("#generate");
