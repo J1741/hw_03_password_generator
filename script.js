@@ -101,13 +101,17 @@ function getPasswordSpecial() {
 /* 8.0 Function: Get user inputs */
 /*********************************/
 
-// get user inputs
+// get user inputs and check for no character types selected
 function getUserInputs() {
   getPasswordLength();
   getPasswordLower();
   getPasswordUpper();
   getPasswordNumber();
   getPasswordSpecial();
+  if (passwordLower === false && passwordUpper === false && passwordNumber === false && passwordSpecial === false) {
+    window.alert("You must select at least one character type!");
+    return;
+  }
 }
 
 /***********************************************************/
