@@ -47,7 +47,7 @@ var createdPassword;
 
 // get password length
 function getPasswordLength() {
-  var userLength = parseInt(window.prompt("How many characters should the password be?"), 10);
+  var userLength = parseInt(window.prompt("How many characters should the password be? (Note: Passwords must be at least 8 and no more than 128 characters)."), 10);
   console.log(isNaN(userLength));
   console.log(userLength);
   passwordLength = userLength;
@@ -59,7 +59,7 @@ function getPasswordLength() {
 
 // get password lower choice
 function getPasswordLower() {
-  var userLower = window.confirm("Should password contain lowercase letters?");
+  var userLower = window.confirm("Should the password contain lowercase letters? (Click \"OK\" for Yes, and \"Cancel\" for No).");
   console.log(userLower);
   passwordLower = userLower;
 }
@@ -70,7 +70,7 @@ function getPasswordLower() {
 
 // get password upper choice
 function getPasswordUpper() {
-  var userUpper = window.confirm("Should password contain uppercase letters?");
+  var userUpper = window.confirm("Should the password contain uppercase letters? (Click \"OK\" for Yes, and \"Cancel\" for No).");
   console.log(userUpper);
   passwordUpper = userUpper;
 }
@@ -81,7 +81,7 @@ function getPasswordUpper() {
 
 // get password numbers choice
 function getPasswordNumber() {
-  var userNumber = window.confirm("Should password contain numbers?");
+  var userNumber = window.confirm("Should the password contain numbers? (Click \"OK\" for Yes, and \"Cancel\" for No).");
   console.log(userNumber);
   passwordNumber = userNumber;
 }
@@ -92,7 +92,7 @@ function getPasswordNumber() {
 
 // get password special characters choice
 function getPasswordSpecial() {
-  var userSpecial = window.confirm("Should password contain special characters?");
+  var userSpecial = window.confirm("Should the password contain special characters? (Click \"OK\" for Yes, \"Cancel\" for No).");
   console.log(userSpecial);
   passwordSpecial = userSpecial;
 }
