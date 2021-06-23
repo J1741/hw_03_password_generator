@@ -10,7 +10,7 @@
 5.0 Function: Confirm uppercase
 6.0 Function: Confirm numbers
 7.0 Function: Confirm special characters
-8.0 Function: Get user inputs
+8.0 Function: Get character inputs
 9.0 Function: Make random selection from possibleChars 
 10.0 Function: Join selectedChars as createdPassword
 11.0 Function: Generate password
@@ -105,20 +105,19 @@ function getPasswordSpecial() {
   passwordSpecial = userSpecial;
 }
 
-/**********************************/
-/* 8.0 Function: Get user inputs */
-/*********************************/
+/**************************************/
+/* 8.0 Function: Get character inputs */
+/**************************************/
 
-// get user inputs and check for no character types selected
-function getUserInputs() {
-  getPasswordLength();
+// get character inputs and check for no character types selected
+function getCharacterInputs() {
   getPasswordLower();
   getPasswordUpper();
   getPasswordNumber();
   getPasswordSpecial();
   if (passwordLower === false && passwordUpper === false && passwordNumber === false && passwordSpecial === false) {
     window.alert("You must select at least one character type!");
-    return;
+    getCharacterInputs();
   }
 }
 
@@ -153,9 +152,12 @@ function joinSelectedChars() {
 
 // generate password
 function generatePassword() {
-  
-  // get user inputs 
-  getUserInputs();
+
+  // get password length
+  getPasswordLength();
+
+  // get character inputs 
+  getCharacterInputs();
 
   if (passwordLower === true) {
     possibleChars = possibleChars.concat(lowers);
