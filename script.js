@@ -14,7 +14,7 @@
 9.0 Function: Make random selection from possibleChars 
 10.0 Function: Join selectedChars as createdPassword
 11.0 Function: Generate password
-12.0 Call: Function to generate password
+12.0 Call: Function to generate and write password
 */
 
 /*********************/
@@ -174,26 +174,26 @@ function generatePassword() {
 
 }
 
-/********************************************/
-/* 12.0 Call: Function to generate password */
-/********************************************/
+/******************************************/
+/* 12.0 Function and call: Write password */
+/******************************************/
 
-generatePassword();
+// Access #generate button
+var generateBtn = document.querySelector("#generate");
 
-
-/* ------------------------------- */
-
-// Assignment Code
-// var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
+// Generate password and write to the #password text area
 function writePassword() {
-  var password = generatePassword();
+  generatePassword();
+
+  // Create variable to store created password
+  var password = createdPassword;
+
+  // Access #password text area 
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+// Add event listener to #generate button
+generateBtn.addEventListener("click", writePassword);
