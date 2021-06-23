@@ -45,12 +45,20 @@ var createdPassword;
 /* 3.0 Function: Prompt for length */
 /***********************************/
 
-// get password length
+// get password length, validate input, and re-prompt if input invalid
 function getPasswordLength() {
   var userLength = parseInt(window.prompt("How many characters should the password be? (Note: Passwords must be at least 8 and no more than 128 characters)."), 10);
-  console.log(isNaN(userLength));
   console.log(userLength);
-  passwordLength = userLength;
+  if (isNaN(userLength)) {
+    window.alert("Please enter a number!");
+    getPasswordLength();
+  } else if (userLength < 8 || userLength > 128) {
+    window.alert("Please enter a number between 8 and 128!")
+    getPasswordLength();
+  } else {
+    console.log(userLength);
+    passwordLength = userLength;
+  }
 }
 
 /***********************************/
